@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# TCC files
+Backend/
+Documentacao_Endpoints_API.md
+Documento_TCC_BSI.zip
+Padroes_de_Git.md
+Requisitos_PWA.txt
+tasks.md

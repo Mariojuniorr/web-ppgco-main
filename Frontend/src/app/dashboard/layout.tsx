@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className={styles.layoutContainer}>
       <div className={styles.layoutBg}></div>
 
-      <header className={styles.topbar}>
+      <aside className={styles.sidebar}>
         <div className={styles.brand}>
           <div className={styles.logoBadge}>PPGCO</div>
           <span className={styles.brandName}>ThesisHub</span>
@@ -23,32 +23,32 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
         <nav className={styles.navList}>
           <Link href="/dashboard" className={`${styles.navItem} ${styles.navItemActive}`}>
-            <Home className={styles.navItemIcon} />
-            <span className={styles.navText}>Início</span>
+            <Home className={styles.navItemIcon} size={20} />
+            Início
           </Link>
           <Link href="/dashboard/disciplinas" className={styles.navItem}>
-            <BookOpen className={styles.navItemIcon} />
-            <span className={styles.navText}>Disciplinas</span>
+            <BookOpen className={styles.navItemIcon} size={20} />
+            Disciplinas
           </Link>
           <Link href="/dashboard/documentos" className={styles.navItem}>
-            <FileText className={styles.navItemIcon} />
-            <span className={styles.navText}>Documentos</span>
+            <FileText className={styles.navItemIcon} size={20} />
+            Documentos
           </Link>
           <Link href="/dashboard/calendario" className={styles.navItem}>
-            <Calendar className={styles.navItemIcon} />
-            <span className={styles.navText}>Calendário</span>
+            <Calendar className={styles.navItemIcon} size={20} />
+            Calendário
           </Link>
           <Link href="/dashboard/mural" className={styles.navItem}>
-             <MessageSquare className={styles.navItemIcon} />
-            <span className={styles.navText}>Mural</span>
+             <MessageSquare className={styles.navItemIcon} size={20} />
+            Mural
           </Link>
         </nav>
 
         <Link href="/" className={styles.logoutBtn} title="Sair do sistema">
-          <LogOut className={styles.navItemIcon} />
-          <span className={styles.navText}>Sair</span>
+          <LogOut size={18} />
+          <span>Sair</span>
         </Link>
-      </header>
+      </aside>
 
       <main className={styles.mainContent}>
         {children}

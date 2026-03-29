@@ -113,7 +113,7 @@ export function MacOSDock() {
           return (
             <div
               key={item.id}
-              ref={(el) => (itemRefs.current[index] = el)}
+              ref={(el) => { itemRefs.current[index] = el; }}
               className="flex flex-col items-center relative"
             >
               <button

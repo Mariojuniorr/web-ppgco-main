@@ -26,8 +26,6 @@ export function MacOSDock() {
   const [mouseX, setMouseX] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [showLabel, setShowLabel] = useState<number | null>(null);
-  const [hoverTimer, setHoverTimer] = useState<NodeJS.Timeout | null>(null);
   const dockRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -71,23 +69,10 @@ export function MacOSDock() {
 
   const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
-    
-    if (hoverTimer) clearTimeout(hoverTimer);
-    
-    const timer = setTimeout(() => {
-      setShowLabel(index);
-    }, 2000); // 2 seconds
-    
-    setHoverTimer(timer);
   };
 
   const handleMouseLeave = () => {
-    if (hoverTimer) {
-      clearTimeout(hoverTimer);
-      setHoverTimer(null);
-    }
     setHoveredIndex(null);
-    setShowLabel(null);
   };
 
   const handleClick = (index: number, route: string) => {
@@ -138,24 +123,15 @@ export function MacOSDock() {
                   }}
                 >
                   <Icon 
-                    className="w-5 h-5 transition-colors" 
+                    className="w-5 h-5 transition-colors dark:!text-white" 
                     style={{ color: isActive ? item.color : undefined }}
                   />
                 </div>
                 
-                {/* Tooltip for fast hover - not present in the original but added for UX */}
-                {hoveredIndex === index && showLabel !== index && (
+                {/* Tooltip for hover */}
+                {hoveredIndex === index && (
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 transition-opacity duration-200 pointer-events-none">
-                    <div className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs px-3 py-1.5 rounded-lg whitespace-nowrap shadow-lg">
-                      {item.label}
-                    </div>
-                  </div>
-                )}
-                
-                {/* Side Label - shows after 2s hover */}
-                {showLabel === index && (
-                  <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 transition-opacity duration-300">
-                    <div className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm px-4 py-2 rounded-lg whitespace-nowrap shadow-xl font-medium">
+                    <div className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-[10px] px-2 py-1 rounded-md whitespace-nowrap shadow-lg font-medium">
                       {item.label}
                     </div>
                   </div>

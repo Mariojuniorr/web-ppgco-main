@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Home, BookOpen, FileText, Calendar, MessageSquare, HelpCircle } from "lucide-react";
+import { Home, BookOpen, FileText, Calendar, MessageSquare, HelpCircle, Shield } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-interface DockItem {
+export interface DockItem {
   id: string;
   route: string;
   icon: React.ElementType;
@@ -12,13 +12,14 @@ interface DockItem {
   color: string;
 }
 
-const dockItems: DockItem[] = [
+export const dockItems: DockItem[] = [
   { id: "home", route: "/dashboard", icon: Home, label: "Início", color: "#3c1d7c" },
-  { id: "disciplinas", route: "/dashboard/disciplinas", icon: BookOpen, label: "Disciplinas", color: "#347cd3" },
-  { id: "documentos", route: "/dashboard/documentos", icon: FileText, label: "Documentos", color: "#b43cb3" },
-  { id: "calendario", route: "/dashboard/calendario", icon: Calendar, label: "Calendário", color: "#a89600" },
-  { id: "mural", route: "/dashboard/mural", icon: MessageSquare, label: "Mural", color: "#3c1d7c" },
-  { id: "faq", route: "/dashboard/faq", icon: HelpCircle, label: "FAQ", color: "#347cd3" },
+  { id: "disciplinas", route: "/disciplinas", icon: BookOpen, label: "Disciplinas", color: "#347cd3" },
+  { id: "documentos", route: "/documentos", icon: FileText, label: "Documentos", color: "#b43cb3" },
+  { id: "calendario", route: "/calendario", icon: Calendar, label: "Calendário", color: "#a89600" },
+  { id: "mural", route: "/mural", icon: MessageSquare, label: "Mural", color: "#3c1d7c" },
+  { id: "permissoes", route: "/permissoes", icon: Shield, label: "Permissões", color: "#f5365c" },
+  { id: "faq", route: "/faq", icon: HelpCircle, label: "FAQ", color: "#347cd3" },
 ];
 
 export function MacOSDock() {

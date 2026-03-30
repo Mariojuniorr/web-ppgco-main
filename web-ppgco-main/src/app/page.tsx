@@ -1,23 +1,23 @@
-import LoginForm from "@/components/LoginForm";
+import LoginForm from "@/features/auth/components/LoginForm";
 import { Zap, ShieldCheck, Award } from "lucide-react";
 
 export default function LoginPage() {
   return (
     <main className="flex min-h-screen bg-[#f8f9fc] overflow-hidden relative font-sans">
-      
+
       {/* 
         Left Column (Form) 
         - Mobile: occupies 100% of the screen.
         - Desktop: occupies almost half, adding a massive sweeping border-radius on the right 
           to simulate an organic wave separating the two sections.
       */}
-      <div 
+      <div
         className="w-full lg:w-[48%] flex flex-col justify-center items-center px-6 lg:px-12 py-12 relative z-20 
                    bg-[#181137] lg:rounded-br-[350px] lg:rounded-tr-[40px] shadow-2xl transition-all duration-500
                    border-r-0 lg:border-r border-white/5"
       >
         <LoginForm />
-        
+
         <p className="absolute bottom-6 text-white/30 text-xs font-semibold tracking-wider">
           Universidade Federal de Uberlândia
         </p>
@@ -83,7 +83,7 @@ export default function LoginPage() {
         </div>
 
         <p className="absolute bottom-6 left-24 xl:left-32 text-[#3c4257]/40 text-xs font-semibold uppercase tracking-widest">
-          Powered by Nexus PWA
+          Powered by Nexus
         </p>
       </div>
 

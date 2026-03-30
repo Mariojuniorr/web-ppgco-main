@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, ShieldStar, Key, LogIn } from "lucide-react";
+import { Mail, User, Key } from "lucide-react";
+import NexusLoader from "@/components/feedback/NexusLoader";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ export default function LoginForm() {
       <div className="text-center mb-10">
         <div className="flex items-center justify-center space-x-2 mb-4">
            {/* Nexus Logo Image could go here. Let's use the provided Nexus_White as an image */}
-           <img src="/Nexus_White.png" alt="Nexus" className="h-6 object-contain" />
+           <img src="/logos/Nexus_White.png" alt="Nexus" className="h-6 object-contain" />
         </div>
         <h2 className="text-2xl font-semibold text-white mb-2 tracking-wide">Portal Acadêmico</h2>
         <p className="text-white/60 text-sm font-medium tracking-widest uppercase">PPGCO - UFU</p>
@@ -51,7 +52,7 @@ export default function LoginForm() {
         {/* Matricula Input */}
         <div className="relative group">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <ShieldStar className="h-5 w-5 text-white/40 group-focus-within:text-white/80 transition-colors" />
+            <User className="h-5 w-5 text-white/40 group-focus-within:text-white/80 transition-colors" />
           </div>
           <input
             id="matricula"
@@ -92,7 +93,10 @@ export default function LoginForm() {
           className="w-full bg-gradient-to-r from-[#3c1d7c] to-[#347cd3] hover:from-[#32166a] hover:to-[#2e6bb5] text-white font-semibold py-4 rounded-xl shadow-lg transition-all duration-300 flex justify-center items-center gap-2 transform active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
         >
           {loading ? (
-            <div className="h-5 w-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+            <>
+                <NexusLoader size={26} color="#ffffff" />
+                <span className="sr-only">Carregando...</span>
+            </>
           ) : (
             <>
               Acessar Portal
